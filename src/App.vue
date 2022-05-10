@@ -1,15 +1,13 @@
 <template>
+  <span class="cursor" />
   <div class="bg-circle1" />
-  <!--  <div id="nav">
-      <router-link to="/">
-        Home
-      </router-link> |
-      <router-link to="/about">
-        About
-      </router-link>
-    </div>-->
-  <router-view />
+  <router-view :key="$route.fullPath" />
 </template>
+<script setup lang="ts">
+document.onmousemove = (ev) => {
+  const cursor: HTMLElement = document.getElementsByClassName('cursor')[0] as HTMLElement
 
-<style>
-</style>
+  cursor.style.top = `${ev.clientY}px`
+  cursor.style.left = `${ev.clientX}px`
+}
+</script>

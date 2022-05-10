@@ -5,7 +5,11 @@
         class="list active"
         @click="activeLink"
       >
-        <a href="#">
+        <a
+          href="#"
+          @mouseenter="addClassOnCursor"
+          @mouseleave="removeClassOnCursor"
+        >
           <span class="icon">
             <svg
               id="Outline"
@@ -41,7 +45,11 @@
         class="list"
         @click="activeLink"
       >
-        <a href="#">
+        <a
+          href="#"
+          @mouseenter="addClassOnCursor"
+          @mouseleave="removeClassOnCursor"
+        >
           <span class="icon">
             <svg
               id="Layer_1"
@@ -65,7 +73,11 @@
         class="list"
         @click="activeLink"
       >
-        <a href="#">
+        <a
+          href="#"
+          @mouseenter="addClassOnCursor"
+          @mouseleave="removeClassOnCursor"
+        >
           <span class="icon">
             <svg
               id="Layer_1"
@@ -89,7 +101,11 @@
         class="list"
         @click="activeLink"
       >
-        <a href="#">
+        <a
+          href="#"
+          @mouseenter="addClassOnCursor"
+          @mouseleave="removeClassOnCursor"
+        >
           <span class="icon">
             <svg
               id="Layer_1"
@@ -113,7 +129,11 @@
         class="list"
         @click="activeLink"
       >
-        <a href="#">
+        <a
+          href="#"
+          @mouseenter="addClassOnCursor"
+          @mouseleave="removeClassOnCursor"
+        >
           <span class="icon">
             <svg
               id="Layer_1"
@@ -155,6 +175,14 @@ export default defineComponent({
         item.classList.remove('active')
         isActiveLink.classList.add('active')
       })
+    },
+    addClassOnCursor () {
+      const cursor: HTMLElement = document.getElementsByClassName('cursor')[0] as HTMLElement
+      cursor.classList.add('cursor--big')
+    },
+    removeClassOnCursor () {
+      const cursor: HTMLElement = document.getElementsByClassName('cursor')[0] as HTMLElement
+      cursor.classList.remove('cursor--big')
     }
   }
 })
