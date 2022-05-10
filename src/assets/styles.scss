@@ -321,19 +321,46 @@ h1 {
   justify-content: center;
   align-content: center;
   align-items: center;
-  width: $pc-width;
 
   .card {
-    &:hover {
+    position: relative;
 
+    .overlay {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      opacity: 0;
+      transition: .3s ease;
+      background-color: rgba(255, 255, 255, .7);
+    }
+
+    &:hover .overlay {
+      opacity: 1;
     }
 
     img {
+      display: block;
       width: 150px;
     }
 
     .card-text {
-      // position: absolute;
+      color: $color-background;
+      font-weight: 700;
+      border-bottom: 1px solid $color-background;
+    }
+
+    .card-link {
+      color: $color-background;
+      font-weight: 500;
     }
   }
 }

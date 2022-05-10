@@ -4,7 +4,10 @@
       src="../../assets/images/js-logo.png"
       alt=""
     >
-    <span class="card-text">{{ content }}</span>
+    <div class="overlay">
+      <span class="card-text">{{ content }}</span>
+      <span class="card-link">Mes projets</span>
+    </div>
   </div>
 </template>
 

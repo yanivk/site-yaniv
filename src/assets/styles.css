@@ -282,10 +282,42 @@ h1 {
   justify-content: center;
   align-content: center;
   align-items: center;
-  width: 75%;
+}
+.content-cards .card {
+  position: relative;
+}
+.content-cards .card .overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0;
+  transition: 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.content-cards .card:hover .overlay {
+  opacity: 1;
 }
 .content-cards .card img {
+  display: block;
   width: 150px;
+}
+.content-cards .card .card-text {
+  color: rgb(2, 2, 26);
+  font-weight: 700;
+  border-bottom: 1px solid rgb(2, 2, 26);
+}
+.content-cards .card .card-link {
+  color: rgb(2, 2, 26);
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=styles.css.map */
