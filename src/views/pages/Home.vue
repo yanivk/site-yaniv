@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <div><menu-content /></div>
+    <div class="menu">
+      <menu-content />
+    </div>
     <div class="content">
       coucou
     </div>
@@ -18,5 +20,6 @@ import MenuContent from '@/components/menu/MenuContent.vue'
     HelloWorld
   }
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+}
 </script>

@@ -1,6 +1,5 @@
 <template>
   <div class="bg-circle1" />
-  <div class="bg-circle2" />
   <!--  <div id="nav">
       <router-link to="/">
         Home

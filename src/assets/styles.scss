@@ -1,5 +1,8 @@
 @import "reset.css";
 
+* {
+  box-sizing: border-box;
+}
 
 :root {
   --pc-width: 75%;
@@ -12,9 +15,10 @@ $color-pri: rgb(82, 188, 250);
 $color-pri-light: rgba(82, 188, 250, 0.445);
 $color-sec: rgb(172, 17, 233);
 $color-sec-light: rgba(172, 17, 233, 0.274);
+$color-background: rgb(2, 2, 26);
 
 body {
-  background: rgb(2, 2, 26);
+  background: $color-background;
   min-height: 100vh;
   font-family: "Inter", sans-serif;
   animation: move 1s linear infinite forwards;
@@ -61,7 +65,7 @@ body {
   filter: blur(150px);
 }
 
-#nav {
+/*#nav {
   padding: 30px;
 }
 
@@ -72,85 +76,138 @@ body {
 
 #nav a.router-link-exact-active {
   color: #42b983;
-}
+}*/
 
-/*MENU*/
 .menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.596);
   position: fixed;
-  top: 50%;
-  left: 50px;
-  border-radius: 50px;
-  padding: 15px;
-  height: 200px;
-  transition: left 1.5s ease, height 1.5s ease;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
 
-  &.is-open {
-    position: static;
+.navigation {
+  position: relative;
+  width: 400px;
+  height: 70px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+  ul {
     display: flex;
-    justify-content: center;
-    height: 100vh;
-    border-radius: 0;
-    padding: 0;
-    left: 15%;
+    width: 350px;
 
-    .open-menu {
+    li {
+      position: relative;
+      width: 70px;
+      z-index: 1;
+
+      a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+
+        .icon {
+          svg {
+            width: 32px;
+            fill: $color-sec;
+          }
+
+          position: relative;
+          display: block;
+          line-height: 1.5em;
+          text-align: center;
+          transition: .5s;
+        }
+
+        .text {
+          position: absolute;
+          color: #2c3e50;
+          font-weight: 400;
+          font-size: .75em;
+          letter-spacing: .05em;
+          transition: .5s;
+          opacity: 0;
+          transform: translateY(20px);
+        }
+      }
+    }
+
+    li.active a {
+      .icon {
+        transform: translateY(-30px);
+      }
+
+      .text {
+        opacity: 1;
+        transform: translateY(10px);
+      }
+    }
+
+    li:nth-child(1).active ~ .indicator {
+      transform: translateX(calc(70px * 0));
+    }
+
+    li:nth-child(2).active ~ .indicator {
+      transform: translateX(calc(70px * 1));
+    }
+
+    li:nth-child(3).active ~ .indicator {
+      transform: translateX(calc(70px * 2));
+    }
+
+    li:nth-child(4).active ~ .indicator {
+      transform: translateX(calc(70px * 3));
+    }
+
+    li:nth-child(5).active ~ .indicator {
+      transform: translateX(calc(70px * 4));
+    }
+  }
+
+  .indicator {
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background-color: #29fd53;
+    border-radius: 50%;
+    border: 6px solid $color-background;
+    transition: .5s;
+
+    &:before {
+      content: '';
       position: absolute;
-      top: 15px;
-      left: 12%;
+      top: 50%;
+      left: -22px;
+      width: 20px;
+      height: 20px;
+      background: transparent;
+      border-top-right-radius: 20px;
+      box-shadow: 0 -10px 0 0 $color-background;
     }
 
-    .menu-item {
-      width: 80%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 15px;
-    }
-
-    .menu-text {
-      display: block;
-    }
-  }
-
-  .menu-item {
-    svg {
-      fill: white;
-      //stroke: white;
-    }
-
-    cursor: pointer;
-    margin: 10px 0;
-    background-color: $color-sec-light;
-    border-radius: 50px;
-    padding: 5px;
-    box-shadow: 0 0 15px $color-sec-light;
-
-    &:hover {
-      box-shadow: 0 0 15px $color-pri-light;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -22px;
+      width: 20px;
+      height: 20px;
+      background: transparent;
+      border-top-left-radius: 20px;
+      box-shadow: 0 -10px 0 0 $color-background;
     }
   }
-
-  .menu-text {
-    display: none;
-  }
-}
-
-.open-menu {
-  &:hover {
-    cursor: pointer;
-  }
-
-  svg {
-    fill: white;
-  }
-}
-
-/*Template site*/
-.home {
-  display: grid;
-  grid-template-columns: 15% 1fr;
 }
