@@ -2,7 +2,7 @@
   <div class="frame">
     <div class="container">
       <div class="content flex-column">
-        <h1>Skills</h1>
+        <h1>SKILLS</h1>
         <div class="content-cards">
           <template
             v-for="skill in skills"
