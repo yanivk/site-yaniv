@@ -1,7 +1,4 @@
 <template>
-  <div class="menu">
-    <menu-content />
-  </div>
   <div class="frame">
     <div class="container">
       <div class="content">
@@ -24,21 +21,20 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import MenuContent from '@/components/menu/MenuContent.vue'
 
 export default defineComponent({
-  components: { MenuContent },
   data () {
     return {
       isOpen: false,
       message: 'FULLSTACK DEVELOPPER YANIV KOUBBI',
-      messageCount: 0,
-      blinkCount: 0,
-      blinkFlg: 0
+      messageCount: 0
     }
   },
   mounted () {
-    setInterval(() => this.textFunc(), 150) // Every 150 milliseconds
+    document.getElementsByClassName('fill-effect')[0].classList.remove('active')
+    this.messageCount = 0
+    const interval = setInterval(() => this.textFunc(), 100) // Every 150 milliseconds
+    setTimeout(() => clearInterval(interval), 5000)
   },
   methods: {
     textFunc () {

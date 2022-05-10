@@ -102,6 +102,10 @@ h1 {
   align-content: center;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 /*Home page*/
 .fill-effect {
   position: relative;
@@ -270,6 +274,17 @@ h1 {
     width: 25px;
     height: 25px;
   }
+}
+/*CARD*/
+.content-cards {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 75%;
+}
+.content-cards .card img {
+  width: 150px;
 }
 
 /*# sourceMappingURL=styles.css.map */

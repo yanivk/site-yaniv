@@ -1,12 +1,13 @@
 import { createStore } from 'vuex'
+import SkillsInterface from '@/interfaces/skillsInterface'
+import skills from '@/store/skills'
 
-export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+export type RootState = {
+    skillsState: SkillsInterface
+}
+
+export const store = createStore({
   modules: {
+    skills
   }
 })

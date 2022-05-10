@@ -5,8 +5,8 @@
         class="list active"
         @click="activeLink"
       >
-        <a
-          href="#"
+        <router-link
+          to="/"
           @mouseenter="addClassOnCursor"
           @mouseleave="removeClassOnCursor"
         >
@@ -39,14 +39,14 @@
             </svg>
           </span>
           <span class="text">Home</span>
-        </a>
+        </router-link>
       </li>
       <li
         class="list"
         @click="activeLink"
       >
-        <a
-          href="#"
+        <router-link
+          to="/skills"
           @mouseenter="addClassOnCursor"
           @mouseleave="removeClassOnCursor"
         >
@@ -67,7 +67,7 @@
             </svg>
           </span>
           <span class="text">Profil</span>
-        </a>
+        </router-link>
       </li>
       <li
         class="list"

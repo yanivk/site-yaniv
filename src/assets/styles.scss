@@ -112,6 +112,10 @@ h1 {
   align-content: center;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 /*Home page*/
 .fill-effect {
   position: relative;
@@ -309,3 +313,25 @@ h1 {
     }
   }
 }
+
+/*CARD*/
+.content-cards {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: $pc-width;
+
+  .card {
+    &:hover{
+
+    }
+    img {
+      width: 150px;
+    }
+    .card-text {
+      // position: absolute;
+    }
+  }
+}
+
