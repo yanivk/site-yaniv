@@ -103,6 +103,18 @@ h1 {
   align-content: center;
 }
 
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.template-col-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
 .flex-column {
   flex-direction: column;
 }
@@ -334,6 +346,50 @@ h1 {
 }
 .content-cards .card .card-link:hover {
   box-shadow: 0 0 0 #52bcfa, inset 35px 35px 0 #52bcfa;
+}
+
+/*PROJECTS*/
+.project-content {
+  position: relative;
+  height: 65vh;
+  width: 50%;
+  max-width: 600px;
+  margin-top: 0;
+  background-color: white;
+  color: #2c3e50;
+}
+.project-content:before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: calc(10px - min(3vmax, 50px));
+  left: calc(10px - min(3vmax, 50px));
+  right: calc(0px - min(3vmax, 50px));
+  bottom: calc(0px - min(3vmax, 50px));
+  border-left: 3px solid hsl(290deg, 34%, 10%);
+  border-top: 3px solid hsl(290deg, 34%, 10%);
+  z-index: 2;
+}
+.project-content:after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: calc(10px - min(3vmax, 50px));
+  left: calc(10px - min(3vmax, 50px));
+  z-index: 1;
+  right: calc(0px - min(3vmax, 50px) - 12px);
+  bottom: calc(0px - min(3vmax, 50px) - 12px);
+  border-right: 3px solid hsl(25deg, 43%, 79%);
+  border-bottom: 3px solid hsl(25deg, 43%, 79%);
+  border-top: 3px solid hsl(25deg, 43%, 79%);
+  border-left: 3px solid hsl(25deg, 43%, 79%);
+}
+.project-content img {
+  width: 150px;
+}
+
+.skills img {
+  width: 50px;
 }
 
 /*# sourceMappingURL=styles.css.map */

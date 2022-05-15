@@ -8,7 +8,10 @@
             v-for="skill in skills"
             :key="skill.id"
           >
-            <card-content :content="skill.name" />
+            <card-content
+              :content="skill.name"
+              :image="skill.image"
+            />
           </template>
         </div>
       </div>

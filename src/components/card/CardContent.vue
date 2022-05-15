@@ -1,7 +1,8 @@
 <template>
   <div class="card">
     <img
-      src="../../assets/images/js-logo.png"
+      v-if="image"
+      :src="`${serverUrl}/uploads/skills/${image}`"
       alt=""
     >
     <div class="overlay">
@@ -16,7 +17,13 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
-    content: { type: String, required: true }
+    content: { type: String, required: true },
+    image: { type: String, required: false, default: null }
+  },
+  data () {
+    return {
+      serverUrl: process.env.VUE_APP_API_URL
+    }
   }
 })
 </script>
