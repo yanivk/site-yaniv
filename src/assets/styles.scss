@@ -302,9 +302,10 @@ h1 {
     border-radius: 50%;
     display: block;
     position: fixed;
+    padding: 8px;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 100;
     transition: width 300ms ease, height 300ms ease;
     mix-blend-mode: difference;
 
@@ -324,6 +325,7 @@ h1 {
 
   .card {
     position: relative;
+    padding: 5px;
 
     .overlay {
       display: flex;
@@ -341,15 +343,18 @@ h1 {
       opacity: 0;
       transition: .3s ease;
       background-color: rgba(255, 255, 255, .7);
+      pointer-events: none;
     }
 
     &:hover .overlay {
       opacity: 1;
+      z-index: 2;
     }
 
     img {
       display: block;
       width: 150px;
+      pointer-events: none;
     }
 
     .card-text {
@@ -361,6 +366,20 @@ h1 {
     .card-link {
       color: $color-background;
       font-weight: 500;
+      margin-top: 1.5em;
+      padding: 8px 15px;
+      border: $color-pri 1px solid;
+      background: rgba($color-pri, 0);
+      pointer-events: auto;
+      transition: 0.3s;
+      box-shadow: 5px 5px 0 rgba($color-pri, 1),
+      inset 0 0 0 rgba($color-pri, 1);
+      z-index: 1;
+
+      &:hover {
+        box-shadow: 0 0 0 rgba($color-pri, 1),
+        inset 35px 35px 0 rgba($color-pri, 1);
+      }
     }
   }
 }
