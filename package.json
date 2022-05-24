@@ -6,17 +6,21 @@
     "serve": "vue-cli-service serve --openssl-legacy-provider",
     "build": "vue-cli-service build --openssl-legacy-provider",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "create-app-yaml": "node create-app-yaml.js"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/plugin-proposal-decorators": "^7.17.8",
     "axios": "^0.26.1",
     "core-js": "^3.8.3",
+    "dotenv": "^16.0.1",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
+    "vue-loader": "^17.0.0",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.0.3",
+    "vue-template-compiler": "^2.6.14",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
