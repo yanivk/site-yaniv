@@ -7,8 +7,7 @@
       "WebWorker"
     ],
     "types": [
-      "node",
-      "jsdom"
+      "node"
     ]
   }
 }

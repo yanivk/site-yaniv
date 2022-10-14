@@ -1,8 +1,8 @@
-import BlogsInterface from './blogsInterface'
+import type BlogsInterface from './blogsInterface'
 
 export default interface CategoriesInterface {
-    id: number
-    name: string
-    description?: string
-    blogs?: BlogsInterface[]
+  id: number
+  name: string
+  description?: string
+  blogs?: BlogsInterface[]
 }
