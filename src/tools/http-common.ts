@@ -8,12 +8,11 @@ type ResponsePromise = {
   config: string
 }
 
-export function httpGet(url: string): Promise<ResponsePromise> {
+export function httpGet (url: string): Promise<ResponsePromise> {
   const config = {
     headers: {
       'Content-Type': 'application/json; charset=utf-8'
     }
   }
-  console.log(import.meta.env)
-  return axios.get(`${import.meta.env.VUE_APP_API_URL}/${url}`, config)
+  return axios.get(`${import.meta.env.VITE_API_URL}/${url}`, config)
 }

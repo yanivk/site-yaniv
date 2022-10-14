@@ -1,9 +1,9 @@
-import {ref} from "vue";
-import {defineStore} from "pinia";
-import type ProjectsInterface from "@/interfaces/projectsInterface";
-import {httpGet} from "@/tools/http-common";
+import { ref } from 'vue'
+import { defineStore } from 'pinia'
+import type ProjectsInterface from '@/interfaces/projectsInterface'
+import { httpGet } from '@/tools/http-common'
 
-export const useProjectsStore = defineStore("projects", () => {
+export const useProjectsStore = defineStore('projects', () => {
   const state = ref<ProjectsInterface[]>([{
     id: 0,
     name: '',
@@ -11,12 +11,12 @@ export const useProjectsStore = defineStore("projects", () => {
     createdAt: new Date(),
     image: '',
     user: 0,
-    skills: [],
+    skills: []
   }])
 
-  function setProjectsInformation() {
+  function setProjectsInformation () {
     httpGet('projects').then(r => state.value = r.data)
   }
 
-  return {state, setProjectsInformation}
+  return { state, setProjectsInformation }
 })
