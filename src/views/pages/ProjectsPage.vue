@@ -17,7 +17,7 @@
               alt=""
             >
             <div
-              v-for="skill in JSON.parse(project.skills)"
+              v-for="skill in project.skills"
               :key="skill.id"
               class="skills"
             >
@@ -35,26 +35,22 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { store } from '@/store'
-import { httpGet } from '@/tools/http-common'
+<script lang="ts" setup>
+import { computed, onMounted, ref } from 'vue'
+import { useProjectsStore } from '@/store/projects'
 
-export default defineComponent({
-  data () {
-    return {
-      serverUrl: process.env.VUE_APP_API_URL
-    }
-  },
-  computed: {
-    projects () {
-      return store.getters.getProjects
-    }
-  },
-  mounted () {
-    httpGet('projects').then(r => store.commit('SET_PROJECTS_INFORMATION', r.data))
-  }
+const projectStore = useProjectsStore()
+
+const serverUrl = ref(import.meta.env.VUE_APP_API_URL)
+
+const projects = computed(() => {
+  return projectStore.state
 })
+
+onMounted(() => {
+  projectStore.setProjectsInformation()
+})
+
 </script>
 
 <style scoped>

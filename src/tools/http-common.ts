@@ -1,11 +1,11 @@
 import axios from 'axios'
 
 type ResponsePromise = {
-    data: [],
-    status: number,
-    statusText: string,
-    headers: string,
-    config: string
+  data: [],
+  status: number,
+  statusText: string,
+  headers: string,
+  config: string
 }
 
 export function httpGet (url: string): Promise<ResponsePromise> {
@@ -14,5 +14,5 @@ export function httpGet (url: string): Promise<ResponsePromise> {
       'Content-Type': 'application/json; charset=utf-8'
     }
   }
-  return axios.get(`${process.env.VUE_APP_API_URL}/${url}`, config)
+  return axios.get(`${import.meta.env.VITE_API_URL}/${url}`, config)
 }

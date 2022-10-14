@@ -19,21 +19,18 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { store } from '@/store'
-import { httpGet } from '@/tools/http-common'
-import CardContent from '@/components/card/CardContent.vue'
+<script lang="ts" setup>
+import { computed, onMounted } from 'vue'
+import { useSkillsStore } from '@/store/skills'
 
-export default defineComponent({
-  components: { CardContent },
-  computed: {
-    skills () {
-      return store.getters.getSkills
-    }
-  },
-  mounted () {
-    httpGet('skills').then(r => store.commit('SET_SKILLS_INFORMATION', r.data))
-  }
+const skillStore = useSkillsStore()
+
+const skills = computed(() => {
+  return skillStore.state
 })
+
+onMounted(() => {
+  skillStore.setSkillsInformation()
+})
+
 </script>
