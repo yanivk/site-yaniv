@@ -3,7 +3,9 @@ import { computed, ref, defineEmits } from 'vue'
 import { usePlayerStore } from '@/store/games/players'
 import { useGameBoardStore } from '@/store/games/gameBoard'
 import ColumnBoard from '@/components/ellementsGame/partials/ColumnBoard.vue'
+import { io } from 'socket.io-client'
 
+const socket = io('http://localhost:3000')
 const playerStore = usePlayerStore()
 const boardStore = useGameBoardStore()
 const playerWin = ref<null | string>(null)
@@ -24,28 +26,33 @@ const rangeCol3 = ref([7, 8, 9])
 const emit = defineEmits(['playerResult'])
 
 function writeInColumn (columnNumber: number) {
-  if (player.value.hisTurn && !boardStore.board[columnNumber].isChecked) {
-    boardStore.board[columnNumber] = {
-      isChecked: true,
-      player: player.value
-    }
-    if (boardStore.getIsWin()) {
-      playerWin.value = `${player.value.pseudo} win this game`
-      emit('playerResult', playerWin.value)
-      if (player.value.pseudo === playerOne.value.pseudo) {
-        playerOne.value.score += 1
-      } else {
-        playerTwo.value.score += 1
+  // TODO check how get result in another page after emmit
+  socket.emit('writeInColumn', { column: columnNumber, player: player.value })
+  socket.on('writeInColumn', ({ column, player }) => {
+    console.log(player)
+    if (player.hisTurn && !boardStore.board[columnNumber].isChecked) {
+      boardStore.board[column] = {
+        isChecked: true,
+        player
       }
-      return
+      if (boardStore.getIsWin()) {
+        playerWin.value = `${player.pseudo} win this game`
+        emit('playerResult', playerWin.value)
+        if (player.pseudo === playerOne.value.pseudo) {
+          playerOne.value.score += 1
+        } else {
+          playerTwo.value.score += 1
+        }
+        return
+      }
+      if (boardStore.getEqualityPart()) {
+        playerWin.value = 'Equality'
+        emit('playerResult', playerWin.value)
+        return
+      }
+      playerStore.changeTurn()
     }
-    if (boardStore.getEqualityPart()) {
-      playerWin.value = 'Equality'
-      emit('playerResult', playerWin.value)
-      return
-    }
-    playerStore.changeTurn()
-  }
+  })
 }
 </script>
 
