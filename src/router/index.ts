@@ -3,6 +3,8 @@ import HomePage from '../views/pages/HomePage.vue'
 import SkillsPage from '@/views/pages/SkillsPage.vue'
 import ContactPage from '@/views/pages/ContactPage.vue'
 import ProjectsPage from '@/views/pages/ProjectsPage.vue'
+import ChoosePlayer from '@/views/games/tic-tac-toe/ChoosePlayer.vue'
+import TicTacToe from '@/views/games/tic-tac-toe/TicTacToeView.vue'
 
 const routes = [
   {
@@ -26,12 +28,14 @@ const routes = [
     component: ContactPage
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutPage.vue')
+    path: '/choose-player',
+    name: 'ChoosePage',
+    component: ChoosePlayer
+  },
+  {
+    path: '/play',
+    name: 'play',
+    component: TicTacToe
   }
 ]
 

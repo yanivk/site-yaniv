@@ -93,7 +93,7 @@
         @click="activeLink"
       >
         <a
-          href="#"
+          href="/choose-player"
           @mouseenter="addClassOnCursor"
           @mouseleave="removeClassOnCursor"
         >
@@ -113,7 +113,7 @@
               />
             </svg>
           </span>
-          <span class="text">Toto</span>
+          <span class="text">Tic Tac Toe</span>
         </a>
       </li>
       <li
